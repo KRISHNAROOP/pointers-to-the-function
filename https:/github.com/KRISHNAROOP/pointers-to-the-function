@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int num, ld, d, sum, low, upp;
+
+    printf("Enter upper limit: ");
+    scanf("%d", &upp);
+
+    printf("Armstrong number between 1 to %d are: \n", upp);
+
+    for(low=1; low<=upp; low++)
+    {
+        sum = 0;
+
+        num = low;
+
+        d = (int) log10(num) + 1;
+
+        while(num > 0)
+        {
+            ld = num % 10;
+
+            sum = sum + ceil(pow(ld, d));
+
+            num = num / 10;
+        }
+
+        if(low == sum)
+        {
+            printf("%d, ", low);
+        }
+
+    }
+
+    return 0;
+}
